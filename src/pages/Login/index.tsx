@@ -21,6 +21,7 @@ const Login = () => {
   const {
     control,
     formState: { errors, isValid },
+    handleSubmit,
   } = useForm<IFormLogin>({
     resolver: yupResolver(schema),
     mode: "onBlur",
@@ -49,7 +50,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button title="Entrar" disabled={!isValid} />
         </Column>
       </LoginContainer>
     </Container>
